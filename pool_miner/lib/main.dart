@@ -1,5 +1,6 @@
 import 'package:custom_navigation_drawer/custom_navigation_drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:pool_miner/views/worker/worker-list.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -35,7 +36,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<NavigationModel> _items = [
     NavigationModel(
-        title: "Dashboard", icon: Icons.insert_chart, route: SecondRoute('1')),
+        title: "Dashboard",
+        icon: Icons.insert_chart,
+        route: WorkerList(items: List<String>.generate(50, (i) => "Miner $i"))),
     NavigationModel(
         title: "Process", icon: Icons.loop, route: SecondRoute('2')),
     NavigationModel(
