@@ -1,0 +1,121 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:pooler_manager/views/components/form/form_dropdown_field.dart';
+import 'package:pooler_manager/views/components/form/form_text_field.dart';
+import 'package:pooler_manager/views/cores/main/worker/worker_list_view.dart';
+
+class HellminerWorkerRegistrationForm extends StatefulWidget {
+  @override
+  _HellminerWorkerRegistrationFormState createState() =>
+    _HellminerWorkerRegistrationFormState();
+}
+
+class _HellminerWorkerRegistrationFormState
+    extends State<HellminerWorkerRegistrationForm> {
+  final _formKey = GlobalKey<FormState>();
+  List<String> _poolSelection = [
+    '--SELECT-SERVER--',
+    'na.luckpool.net',
+    'eu.luckpool.net',
+    'ap.luckpool.net',
+  ];
+  final snackBar = SnackBar(
+    content: Text('Registration Successful'),
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: SingleChildScrollView(
+        child: Card(
+          margin: EdgeInsets.all(40),
+          child: Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Column(
+              children: [
+                Text("Configure Worker"),
+                SizedBox(
+                  height: 40,
+                ),
+                _content(context),
+              ],
+            ),
+          )
+        ),
+      )
+    );
+  }
+
+  _content(BuildContext context) {
+    return SizedBox(
+      width: 400,
+      child: Form(
+        key: _formKey,
+        child: Column(
+          // mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            FormTextField(label: 'Worker Name'),
+            SizedBox(
+              height: 20,
+            ),
+            FormDropDownField(
+              label: 'Server',
+              defaultValue: 0,
+              listValue: _poolSelection),            
+            SizedBox(
+              height: 20,
+            ),
+            FormTextField(label: 'Wallet Address'),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [
+                Flexible(
+                  flex: 3,
+                  child: FormTextField(
+                    label: 'Port', keyboardType: TextInputType.number)
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Flexible(
+                  flex: 2,
+                  child: FormDropDownField(
+                    label: 'CPU',
+                    listValue: ["1", "2", "3", "4", "5", "6", "7", "8"],
+                    defaultValue: 0),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            FormDropDownField(
+              label: 'Mode',
+              listValue: ["--SELECT-MODE--", "Regular", "Hybrid", "Hybrid Static Diff"],
+              defaultValue: 0
+            ),
+            SizedBox(
+              height: 60,
+            ),
+            _nextButton(context)
+          ],
+        ),
+      ),
+    );
+  }
+
+  _nextButton(BuildContext context) {
+    return SizedBox(
+      width: 400,
+      height: 50,
+      child: ElevatedButton(child: Text("Register"), onPressed: () {
+        Navigator.pushReplacementNamed(
+          context, WorkerListView.routeName);
+      })
+    );
+  }
+}
