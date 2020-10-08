@@ -3,6 +3,7 @@ import 'package:pooler_manager/views/app/app_scaffold.dart';
 import 'package:pooler_manager/views/components/worker_list_tile_item.dart';
 import 'package:pooler_manager/views/cores/forms/worker/new_worker_registration_form.dart';
 import 'package:pooler_manager/views/cores/main/worker/worker_registration_view.dart';
+import 'package:pooler_manager/views/cores/main/worker/worker_status.dart';
 
 class WorkerListView extends StatelessWidget {
   WorkerListView({Key key}) : super(key: key);
@@ -37,6 +38,7 @@ class WorkerListView extends StatelessWidget {
             itemCount: items.length,
             itemBuilder: (context, index) {
               return WorkerListTileItem(
+                onTap: () {_showStatus(context);},
                 title: Text('Miner Rig ${items[index]}'),
                 subTitle: Text('Last run - 3 days ago'),
               );
@@ -54,5 +56,11 @@ class WorkerListView extends StatelessWidget {
         body: NewWorkerRegistrationForm()
       )
     );
+  }
+
+  _showStatus(BuildContext context) {     
+    Navigator.pushNamed(
+      context, WorkerStatus.routeName,
+    );    
   }
 }

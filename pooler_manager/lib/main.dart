@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'views/cores/main/dashboard/dashboard_view.dart';
 import 'views/cores/main/worker/worker_list_view.dart';
 import 'views/cores/main/worker/worker_registration_view.dart';
+import 'views/cores/main/worker/worker_status.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       '/dashboard': (context) => DashboardView(),
       '/worker': (context) => WorkerListView(),
       '/worker/add': (context) => WorkerRegistrationView(),
+      WorkerStatus.routeName: (context) => WorkerStatus(),
     });
   }
 }
