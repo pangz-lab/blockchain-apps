@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pooler_manager/views/components/drawer_item.dart';
 import 'package:pooler_manager/views/cores/main/dashboard/dashboard_view.dart';
+import 'package:pooler_manager/views/cores/main/home/home_view.dart';
 import 'package:pooler_manager/views/cores/main/worker/worker_list_view.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -16,7 +17,7 @@ class AppDrawer extends StatelessWidget {
             icon: Icons.home,
             onTap: () {
               Navigator.pushReplacementNamed(
-                context, DashboardView.routeName);
+                context, HomeView.routeName);
             }
           ),
           DrawerItem(

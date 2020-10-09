@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 
 class WorkerStatus extends StatefulWidget {
-  static final routeName = '/worker/status';
+  static const routeName = '/worker/status';
   @override
   _WorkerStatusState createState() => _WorkerStatusState();
 }
@@ -54,7 +54,6 @@ class _WorkerStatusState extends State<WorkerStatus> {
             statusTerminal
           ],
         ),
-        
       )
     );    
   }
@@ -67,7 +66,7 @@ class _WorkerStatusState extends State<WorkerStatus> {
     print("After process");
     print(proc.pid);
     */
-    var proc = Process.run(cmd, [], workingDirectory: wd, runInShell: true).then((result) {
+    Process.run(cmd, [], workingDirectory: wd, runInShell: true).then((result) {
     // var proc = Process.run("mine-out.bat", [], workingDirectory: wd, runInShell: true).then((result) {
     // var proc = Process.run("start",["mine-out.bat", "/b"], workingDirectory: wd, runInShell: true).then((result) {
     

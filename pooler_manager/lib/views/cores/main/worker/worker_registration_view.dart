@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:pooler_manager/interfaces/routes/screen_arguments_interface.dart';
 
 class WorkerRegistrationView extends StatelessWidget {
   WorkerRegistrationView({Key key}) : super(key: key);
-  static final routeName = '/worker/add';
+  static const routeName = '/worker/add';
   @override
   Widget build(BuildContext context) {
-    final WorkerRegistrationScreenArguments args =
+    final ScreenArgumentsInterface args =
       ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('Worker Registration'),
       ),
-      // body: NewWorkerRegistrationForm(),
       body: args.body,
     );
   }
-}
-
-class WorkerRegistrationScreenArguments {
-  final Widget body;
-  WorkerRegistrationScreenArguments({this.body});
 }
