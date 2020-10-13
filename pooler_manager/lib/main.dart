@@ -1,13 +1,14 @@
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'views/cores/main/dashboard/dashboard_view.dart';
-import 'views/cores/main/home/home_view.dart';
-import 'views/cores/main/worker/worker_list_view.dart';
-import 'views/cores/main/worker/worker_registration_view.dart';
-import 'views/cores/main/worker/worker_status.dart';
-import 'views/cores/main/worker/worker_update_view.dart';
+import 'views/core/main/dashboard/dashboard_view.dart';
+import 'views/core/main/home/home_view.dart';
+import 'views/core/main/process/process_list_view.dart';
+import 'views/core/main/process/process_status_view.dart';
+import 'views/core/main/worker/worker_detail_view.dart';
+import 'views/core/main/worker/worker_list_view.dart';
+import 'views/core/main/worker/worker_registration_view.dart';
+import 'views/core/main/worker/worker_update_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -42,26 +43,36 @@ class _MyAppState extends State<MyApp> {
       CupertinoPageRoute route;
       switch (settings.name) {
         case HomeView.routeName:
-          route = CupertinoPageRoute(builder: (_) => HomeView(), settings: settings);
+          route = _setScreenRoute(HomeView(), settings);
           break;
         case DashboardView.routeName :
-          route = CupertinoPageRoute(builder: (_) => DashboardView(), settings: settings);
+          route = _setScreenRoute(DashboardView(), settings);
           break;
         case WorkerListView.routeName :
-          route = CupertinoPageRoute(builder: (_) => WorkerListView(), settings: settings);
+          route = _setScreenRoute(WorkerListView(), settings);
           break;
         case WorkerRegistrationView.routeName :
-          route = CupertinoPageRoute(builder: (_) => WorkerRegistrationView(), settings: settings);
+          route = _setScreenRoute(WorkerRegistrationView(), settings);
           break;
         case WorkerUpdateView.routeName :
-          route = CupertinoPageRoute(builder: (_) => WorkerUpdateView(), settings: settings);
+          route = _setScreenRoute(WorkerUpdateView(), settings);
           break;
-        case WorkerStatus.routeName :
-          route = CupertinoPageRoute(builder: (_) => WorkerStatus(), settings: settings);
+        case WorkerDetailView.routeName :
+          route = _setScreenRoute(WorkerDetailView(), settings);
+          break;
+        case ProcessStatusView.routeName :
+          route = _setScreenRoute(ProcessStatusView(), settings);
+          break;
+        case ProcessListView.routeName :
+          route = _setScreenRoute(ProcessListView(), settings);
           break;
       }
       return route;
     });
+  }
+
+  _setScreenRoute(Widget screen,RouteSettings settings) {
+    return CupertinoPageRoute(builder: (_) => screen, settings: settings);
   }
 
   _setScreenSize() async {

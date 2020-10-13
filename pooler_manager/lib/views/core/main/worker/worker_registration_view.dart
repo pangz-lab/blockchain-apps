@@ -6,8 +6,7 @@ class WorkerRegistrationView extends StatelessWidget {
   static const routeName = '/worker/add';
   @override
   Widget build(BuildContext context) {
-    final ScreenArgumentsInterface args =
-      ModalRoute.of(context).settings.arguments;
+    final ScreenArgumentsInterface args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('Worker Registration'),

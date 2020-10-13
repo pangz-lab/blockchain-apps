@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pooler_manager/interfaces/routes/screen_arguments_interface.dart';
-import 'package:pooler_manager/interfaces/views/vurd_action_interface.dart';
-import 'package:pooler_manager/views/app/app_scaffold.dart';
-import 'package:pooler_manager/views/components/worker_list_tile_item.dart';
-import 'package:pooler_manager/views/cores/forms/hellminer_worker/hellminer_worker_update_form.dart';
-import 'package:pooler_manager/views/cores/forms/worker/new_worker_registration_form.dart';
-import 'package:pooler_manager/views/cores/main/worker/worker_registration_view.dart';
-import 'package:pooler_manager/views/cores/main/worker/worker_status.dart';
-import 'package:pooler_manager/views/cores/main/worker/worker_update_view.dart';
+import 'package:pooler_manager/interfaces/views/action_button_interface.dart';
+import 'package:pooler_manager/views/defaults/app_scaffold.dart';
+import 'package:pooler_manager/views/core/main/worker/components/worker_list_tile_item.dart';
+import 'package:pooler_manager/views/core/main/worker/forms/common/new_worker_registration_form.dart';
+import 'package:pooler_manager/views/core/main/worker/forms/hellminer_worker/hellminer_worker_update_form.dart';
+import 'package:pooler_manager/views/core/main/worker/forms/hellminer_worker/hellminer_worker_view_form.dart';
+import 'package:pooler_manager/views/core/main/worker/worker_detail_view.dart';
+import 'package:pooler_manager/views/core/main/worker/worker_registration_view.dart';
+import 'package:pooler_manager/views/core/main/worker/worker_update_view.dart';
 
 class WorkerListView extends StatelessWidget {
   WorkerListView({Key key}) : super(key: key);
@@ -36,16 +37,15 @@ class WorkerListView extends StatelessWidget {
       body: Card(
         margin: EdgeInsets.fromLTRB(100, 40, 100, 40),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.fromLTRB(30, 50, 30, 50),
           child: ListView.builder(
-            padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
+            padding: EdgeInsets.fromLTRB(30, 50, 30, 50),
             itemCount: items.length,
             itemBuilder: (context, index) {
               return WorkerListTileItem(
-                onTap: () {_showStatus(context);},
+                onTap: () {_showDetail(context);},
                 title: Text('Miner Rig ${items[index]}'),
-                subTitle: Text('Last run - 3 days ago'),
-                itemButtonActions: _vurdActions(context),
+                itemButtonActions: _actions(context),
               );
             },
           ),
@@ -63,21 +63,22 @@ class WorkerListView extends StatelessWidget {
     );
   }
 
-  _showStatus(BuildContext context) {     
+  _showDetail(BuildContext context) {     
     Navigator.pushNamed(
-      context, WorkerStatus.routeName,
+      context, WorkerDetailView.routeName,
+      arguments: ScreenArgumentsInterface(
+        body:HellminerWorkerViewForm()
+      )
     );    
   }
 
-  VurdActionInterface _vurdActions(BuildContext context) {
-    return VurdActionInterface(
-      view: () {
-        print('view');
-      },
+  ActionButtonInterface _actions(BuildContext context) {
+    return ActionButtonInterface(
       update: () {
         print('update');
-        Navigator.pushNamed(context, WorkerUpdateView.routeName,
-          arguments: WorkerUpdateScreenArguments(
+        Navigator.pushNamed(
+          context, WorkerUpdateView.routeName,
+          arguments: ScreenArgumentsInterface(
             body: HellminerWorkerUpdateForm()
           )
         );

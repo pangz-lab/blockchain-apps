@@ -2,13 +2,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'dart:io';
 
-class WorkerStatus extends StatefulWidget {
-  static const routeName = '/worker/status';
+class ProcessStatusView extends StatefulWidget {
+  static const routeName = '/process/status';
   @override
-  _WorkerStatusState createState() => _WorkerStatusState();
+  _ProcessStatusViewState createState() => _ProcessStatusViewState();
 }
 
-class _WorkerStatusState extends State<WorkerStatus> {
+class _ProcessStatusViewState extends State<ProcessStatusView> {
   // String message = "Run process";
   // String logPath = 'C:\\Users\\pangz\\OneDrive\\Documents\\Pitaka\\Apps\\modules\\hellminer_cpu_win64_avx-xeon\\stat.log';
   // String cmd = 'cd C:\\Users\\pangz\\OneDrive\\Documents\\Pitaka\\Apps\\modules\\hellminer_cpu_win64_avx-xeon && mine-out.bat > stat.log >2&1';
@@ -34,7 +34,7 @@ class _WorkerStatusState extends State<WorkerStatus> {
     print("build>> ");
     return Scaffold(
       appBar: AppBar(
-        title: Text('Worker Status'),
+        title: Text('Process Status'),
       ),
       body: Container(
         child: Column(

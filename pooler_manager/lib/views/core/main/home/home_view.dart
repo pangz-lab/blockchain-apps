@@ -1,6 +1,6 @@
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/material.dart';
-import 'package:pooler_manager/views/app/app_scaffold.dart';
+import 'package:pooler_manager/views/defaults/app_scaffold.dart';
 
 class HomeView extends StatefulWidget {
   static const routeName = '/';

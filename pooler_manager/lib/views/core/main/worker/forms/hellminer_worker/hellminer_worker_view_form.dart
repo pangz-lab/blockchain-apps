@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pooler_manager/views/components/form/form_dropdown_field.dart';
-import 'package:pooler_manager/views/components/form/form_text_field.dart';
-import 'package:pooler_manager/views/cores/main/worker/worker_list_view.dart';
+import 'package:pooler_manager/views/components/forms/form_dropdown_field.dart';
+import 'package:pooler_manager/views/components/forms/form_text_field.dart';
+import 'package:pooler_manager/views/core/main/worker/worker_list_view.dart';
+import 'package:pooler_manager/views/defaults/app_card_thin.dart';
 
-class HellminerWorkerUpdateForm extends StatefulWidget {
+class HellminerWorkerViewForm extends StatefulWidget {
   @override
-  _HellminerWorkerUpdateFormState createState() =>
-    _HellminerWorkerUpdateFormState();
+  _HellminerWorkerViewFormState createState() =>
+    _HellminerWorkerViewFormState();
 }
 
-class _HellminerWorkerUpdateFormState
-    extends State<HellminerWorkerUpdateForm> {
+class _HellminerWorkerViewFormState
+    extends State<HellminerWorkerViewForm> {
   final _formKey = GlobalKey<FormState>();
   List<String> _poolSelection = [
     '--SELECT-SERVER--',
@@ -25,24 +26,16 @@ class _HellminerWorkerUpdateFormState
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
-        child: Card(
-          margin: EdgeInsets.all(40),
-          child: Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Column(
-              children: [
-                Text("Update Worker"),
-                SizedBox(
-                  height: 40,
-                ),
-                _content(context),
-              ],
-            ),
-          )
-        ),
-      )
+    return AppCardThin(
+      child: Column(
+        children: [
+          Text("Worker Details"),
+          SizedBox(
+            height: 40,
+          ),
+          _content(context),
+        ],
+      ),
     );
   }
 

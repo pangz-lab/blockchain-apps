@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pooler_manager/interfaces/routes/screen_arguments_interface.dart';
 
 class WorkerUpdateView extends StatelessWidget {
   WorkerUpdateView({Key key}) : super(key: key);
   static const routeName = '/worker/edit';
   @override
   Widget build(BuildContext context) {
-    final WorkerUpdateScreenArguments args =
-      ModalRoute.of(context).settings.arguments;
+    final ScreenArgumentsInterface args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('Worker Update'),
@@ -14,9 +14,4 @@ class WorkerUpdateView extends StatelessWidget {
       body: args.body,
     );
   }
-}
-
-class WorkerUpdateScreenArguments {
-  final Widget body;
-  WorkerUpdateScreenArguments({this.body});
 }

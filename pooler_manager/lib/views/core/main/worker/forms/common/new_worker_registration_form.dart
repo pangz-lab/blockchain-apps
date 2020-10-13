@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pooler_manager/interfaces/routes/screen_arguments_interface.dart';
-import 'package:pooler_manager/views/components/form/form_dropdown_field.dart';
-import 'package:pooler_manager/views/components/form/form_text_field.dart';
-import 'package:pooler_manager/views/cores/forms/hellminer_worker/hellminer_worker_registration_form.dart';
-import 'package:pooler_manager/views/cores/main/worker/worker_registration_view.dart';
+import 'package:pooler_manager/views/components/forms/form_dropdown_field.dart';
+import 'package:pooler_manager/views/components/forms/form_text_field.dart';
+import 'package:pooler_manager/views/core/main/worker/forms/hellminer_worker/hellminer_worker_registration_form.dart';
+import 'package:pooler_manager/views/core/main/worker/worker_registration_view.dart';
 
 class NewWorkerRegistrationForm extends StatefulWidget {
   @override

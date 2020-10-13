@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pooler_manager/views/app/app_drawer.dart';
+import 'package:pooler_manager/views/defaults/app_drawer.dart';
 
 class AppScaffold extends StatelessWidget {
   AppScaffold(

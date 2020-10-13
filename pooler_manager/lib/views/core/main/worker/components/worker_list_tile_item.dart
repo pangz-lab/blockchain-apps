@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pooler_manager/interfaces/views/vurd_action_interface.dart';
+import 'package:pooler_manager/interfaces/views/action_button_interface.dart';
 
 class WorkerListTileItem extends StatelessWidget {
   WorkerListTileItem({
@@ -13,7 +13,7 @@ class WorkerListTileItem extends StatelessWidget {
   final Widget subTitle;
   final Function onTap;
   final Function onLongPress;
-  final VurdActionInterface itemButtonActions;
+  final ActionButtonInterface itemButtonActions;
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +30,11 @@ class WorkerListTileItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              actionButton(
-                icon: Icons.remove_red_eye,
-                tooltip: 'view',
-                onPressed: itemButtonActions.view
-              ),
+              // actionButton(
+              //   icon: Icons.remove_red_eye,
+              //   tooltip: 'view',
+              //   onPressed: itemButtonActions.view
+              // ),
               actionButton(
                 icon: Icons.edit,
                 tooltip: 'edit',
@@ -44,14 +44,7 @@ class WorkerListTileItem extends StatelessWidget {
                 tooltip: 'delete',
                 color: Colors.redAccent,
                 onPressed: itemButtonActions.delete
-              ),
-              actionButton(
-                icon: Icons.play_arrow,
-                tooltip: 'run',
-                size: 50.0,
-                color: Colors.green,
-                onPressed: itemButtonActions.run
-              ),
+              )
             ],
           ),
         ),
