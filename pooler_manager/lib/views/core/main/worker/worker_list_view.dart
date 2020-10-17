@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pooler_manager/interfaces/routes/screen_arguments_interface.dart';
 import 'package:pooler_manager/interfaces/views/action_button_interface.dart';
+import 'package:pooler_manager/views/defaults/app_card_standard.dart';
 import 'package:pooler_manager/views/defaults/app_scaffold.dart';
 import 'package:pooler_manager/views/core/main/worker/components/worker_list_tile_item.dart';
 import 'package:pooler_manager/views/core/main/worker/forms/common/new_worker_registration_form.dart';
@@ -34,23 +35,19 @@ class WorkerListView extends StatelessWidget {
           )
         ],
       ),
-      body: Card(
-        margin: EdgeInsets.fromLTRB(100, 40, 100, 40),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(30, 50, 30, 50),
-          child: ListView.builder(
-            padding: EdgeInsets.fromLTRB(30, 50, 30, 50),
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              return WorkerListTileItem(
-                onTap: () {_showDetail(context);},
-                title: Text('Miner Rig ${items[index]}'),
-                itemButtonActions: _actions(context),
-              );
-            },
-          ),
+      body: AppCardStandard(
+        child: ListView.builder(
+          padding: EdgeInsets.fromLTRB(30, 50, 30, 50),
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return WorkerListTileItem(
+              onTap: () {_showDetail(context);},
+              title: Text('Miner Rig ${items[index]}'),
+              itemButtonActions: _actions(context),
+            );
+          },
         ),
-      ),
+      )
     );
   }
 

@@ -1,6 +1,11 @@
 import 'dart:async';
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:pooler_manager/views/defaults/app_card_standard.dart';
+import 'package:pooler_manager/views/defaults/app_card_thin.dart';
 import 'dart:io';
+
+import 'package:pooler_manager/views/defaults/app_scaffold.dart';
 
 class ProcessStatusView extends StatefulWidget {
   static const routeName = '/process/status';
@@ -36,36 +41,47 @@ class _ProcessStatusViewState extends State<ProcessStatusView> {
       appBar: AppBar(
         title: Text('Process Status'),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            ElevatedButton(
-              child: Text((!minerRunning) ? "Run Miner" : "Stop Miner"),
-              onPressed: () {
-                print('onpressed');
-                if(!minerRunning) {
-                  runMiner();
-                } else {
-                  killMiner();
-                }                
-              },
-            ),            
-            Text(processId.toString()),
-            statusTerminal
-          ],
+      body: AppCardStandard(
+        child: Center(
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.fromLTRB(10,20,10,10),
+                width: 600.0,
+                height: 200.0,
+                child: statusTerminal,
+                decoration: ShapeDecoration(
+                  color: Colors.black,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5))
+                  )
+                ),
+              ),
+              // AppCardThin(
+              //   child: statusTerminal
+              // ),
+              // ElevatedButton(
+              //   child: Text((!minerRunning) ? "Run Miner" : "Stop Miner"),
+              //   onPressed: () {
+              //     print('onpressed');
+              //     if(!minerRunning) {
+              //       runMiner();
+              //     } else {
+              //       killMiner();
+              //     }                
+              //   },
+              // ),            
+              // Text(processId.toString()),
+            ],
+          ),
         ),
       )
-    );    
+    );
   }
 
   
   runMiner() async {
     print("Run miner");
-    /*
-    var proc = await Process.run(cmd, [], runInShell: true);
-    print("After process");
-    print(proc.pid);
-    */
     Process.run(cmd, [], workingDirectory: wd, runInShell: true).then((result) {
     // var proc = Process.run("mine-out.bat", [], workingDirectory: wd, runInShell: true).then((result) {
     // var proc = Process.run("start",["mine-out.bat", "/b"], workingDirectory: wd, runInShell: true).then((result) {
@@ -103,9 +119,10 @@ class StatusTerminal extends StatefulWidget {
 }
 
 class _StatusTerminalState extends State<StatusTerminal> {
-  String message = "Run process";
+  String message = "Loading the process log....\n[ Please wait ]";
   String logPath = 'C:\\Users\\pangz\\OneDrive\\Documents\\Pitaka\\Apps\\modules\\hellminer_cpu_win64_avx-xeon\\mine-out.log';
   Timer timer;
+  int logLength = 500;
   @override
   void initState() {
     super.initState();
@@ -120,14 +137,18 @@ class _StatusTerminalState extends State<StatusTerminal> {
 
   @override
   Widget build(BuildContext context) {
-    return Text(message);
+    return Text(
+      message,
+      overflow: TextOverflow.visible,
+      style: TextStyle(color: Colors.white),
+    );
   }
 
   setUpTimedLogFetch() {
     timer = Timer.periodic(Duration(milliseconds: 5000), (timer) {
       logContent().then((String c) {
         setState(() {
-          message = c ?? 'erer';
+          message = c ?? 'Error loading the log...';
         });
       });
     });
@@ -140,7 +161,7 @@ class _StatusTerminalState extends State<StatusTerminal> {
       // Read the file
       String fc = await file.readAsString();
       print(fc.length);
-      return fc.substring((fc.length < 500)? fc.length : fc.length - 500);
+      return fc.substring((fc.length < logLength)? fc.length : fc.length - logLength);
     } catch (e) {
       return 'empty';
     }
