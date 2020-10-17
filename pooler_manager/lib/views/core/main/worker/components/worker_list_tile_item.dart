@@ -17,38 +17,45 @@ class WorkerListTileItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      dense: false,
-      onTap: this.onTap,
-      onLongPress: this.onLongPress,
-      subtitle: this.subTitle,
-      leading: CircleAvatar(child: Icon(Icons.engineering_rounded)),
-      title: Row(children: [
-        Flexible(flex: 1, fit: FlexFit.tight, child: this.title),
-        Flexible(
-          flex: 2,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              // actionButton(
-              //   icon: Icons.remove_red_eye,
-              //   tooltip: 'view',
-              //   onPressed: itemButtonActions.view
-              // ),
-              actionButton(
-                icon: Icons.edit,
-                tooltip: 'edit',
-                onPressed: itemButtonActions.update),
-              actionButton(
-                icon: Icons.delete,
-                tooltip: 'delete',
-                color: Colors.redAccent,
-                onPressed: itemButtonActions.delete
-              )
-            ],
+    return Container(
+      margin: EdgeInsets.fromLTRB(0,2,0,2),
+      decoration: const BoxDecoration(
+        border: Border.fromBorderSide(BorderSide(width: 1.0, color: Colors.black45)),
+        borderRadius: BorderRadius.all(Radius.circular(5))
+      ),
+      child: ListTile(
+        dense: false,
+        onTap: this.onTap,
+        onLongPress: this.onLongPress,
+        subtitle: this.subTitle,
+        leading: CircleAvatar(child: Icon(Icons.engineering_rounded)),
+        title: Row(children: [
+          Flexible(flex: 1, fit: FlexFit.tight, child: this.title),
+          Flexible(
+            flex: 2,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                // actionButton(
+                //   icon: Icons.remove_red_eye,
+                //   tooltip: 'view',
+                //   onPressed: itemButtonActions.view
+                // ),
+                actionButton(
+                  icon: Icons.edit,
+                  tooltip: 'edit',
+                  onPressed: itemButtonActions.update),
+                actionButton(
+                  icon: Icons.delete,
+                  tooltip: 'delete',
+                  color: Colors.redAccent,
+                  onPressed: itemButtonActions.delete
+                )
+              ],
+            ),
           ),
-        ),
-      ]),
+        ]),
+      ),
     );
   }
 
