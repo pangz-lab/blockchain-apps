@@ -60,18 +60,18 @@ class _ProcessStatusViewState extends State<ProcessStatusView> {
               // AppCardThin(
               //   child: statusTerminal
               // ),
-              // ElevatedButton(
-              //   child: Text((!minerRunning) ? "Run Miner" : "Stop Miner"),
-              //   onPressed: () {
-              //     print('onpressed');
-              //     if(!minerRunning) {
-              //       runMiner();
-              //     } else {
-              //       killMiner();
-              //     }                
-              //   },
-              // ),            
-              // Text(processId.toString()),
+              ElevatedButton(
+                child: Text((!minerRunning) ? "Run Miner" : "Stop Miner"),
+                onPressed: () {
+                  print('onpressed');
+                  if(!minerRunning) {
+                    runMiner();
+                  } else {
+                    killMiner();
+                  }                
+                },
+              ),            
+              Text(processId.toString()),
             ],
           ),
         ),
@@ -82,15 +82,38 @@ class _ProcessStatusViewState extends State<ProcessStatusView> {
   
   runMiner() async {
     print("Run miner");
+    //hellminer.exe -c stratum+tcp://ap.luckpool.net:3956#xnsub -u RUYVdsamoaJ5JwB2YZyPHCAVXeNa87GV5Q.pangzlab_miner.Rig001 -p x --cpu 4 
+    // var result = await Process.run('hellminer.exe', [
+    //   '-c',
+    //   'stratum+tcp://ap.luckpool.net:3956#xnsub',
+    //   '-u',
+    //   'RUYVdsamoaJ5JwB2YZyPHCAVXeNa87GV5Q.pangzlab_miner.Rig001',
+    //   '-p',
+    //   'x',
+    //   '--cpu',
+    //   '2',
+    // ], workingDirectory: wd, runInShell: true);
+    // var result = await Process.run(cmd, [], workingDirectory: wd, runInShell: true);
+    Process.run('tasklist | find cmd.exe', [], workingDirectory: wd, runInShell: true).then((result) {
+      print(" Result 1 >>");
+      print(result.stdout);
+    });
     Process.run(cmd, [], workingDirectory: wd, runInShell: true).then((result) {
+    //var result = await Process.run('hellminer.exe', [], workingDirectory: wd, runInShell: true);
+    //.then((result) {
     // var proc = Process.run("mine-out.bat", [], workingDirectory: wd, runInShell: true).then((result) {
     // var proc = Process.run("start",["mine-out.bat", "/b"], workingDirectory: wd, runInShell: true).then((result) {
     
-      print("inside process");
+      print("inside process >>");
       stdout.write(result.stdout);
       stderr.write(result.stderr);
       processId = result.pid;
       print(result.pid.toString());
+    });
+
+    Process.run('tasklist | find cmd.exe', [], workingDirectory: wd, runInShell: true).then((result) {
+      print(" Result 2 >>");
+      print(result.stdout);
     });
 
     print("outside process");
