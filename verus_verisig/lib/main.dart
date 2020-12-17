@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
-import 'view/screen/_main/home_screen/home_screen.dart';
-import 'view/screen/_main/verify_text_message_screen/verify_text_message_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:verus_verisig/modules/features/mobile/verify_text_message/logic/verify_text_message_logic.dart';
+import 'package:verus_verisig/themes/default.dart';
+import 'modules/features/_main/home_screen/home_screen.dart';
+import 'modules/features/_main/verify_text_message_screen/verify_text_message_post_input_screen.dart';
+import 'modules/features/_main/verify_text_message_screen/verify_text_message_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider( create: (context) => VerifyTextMessageLogic())
+      ],
+      child: MyApp()
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,14 +23,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeDefault.apply,
       // home: MyStatefulWidget(),
       initialRoute: '/',
       routes: {
         '/' : (context) => BaseScreen(),
         VerifyTextMessageScreen.routeName : (context) => VerifyTextMessageScreen(),
+        VerifyTextMessagePostInputScreen.routeName : (context) => VerifyTextMessagePostInputScreen(),
       },
     );
   }

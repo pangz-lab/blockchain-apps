@@ -10,7 +10,7 @@ class DefaultButtonPrimary extends StatelessWidget {
     key
   }) : super(key: key);
   
-  final Function onPressed;
+  final VoidCallback onPressed;
   final String title;
   final IconData icon;
   final FocusNode focusNode;
@@ -31,12 +31,12 @@ class DefaultButtonPrimary extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(this.title),
+            Text(this.title ?? ""),
             SizedBox(width: 10.0),
             FaIcon(this.icon),
           ],
         ),
-        onPressed: this.onPressed
+        onPressed : (this.onPressed) ?? () {  },
       ),
     );
   }
