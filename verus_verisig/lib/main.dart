@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:verus_verisig/modules/features/_main/home_screen/home_screen.dart';
+import 'package:verus_verisig/modules/features/_main/verify_hash_screen/verify_hash_post_input_screen.dart';
+import 'package:verus_verisig/modules/features/_main/verify_hash_screen/verify_hash_screen.dart';
+import 'package:verus_verisig/modules/features/_main/verify_text_message_screen/verify_text_message_post_input_screen.dart';
+import 'package:verus_verisig/modules/features/_main/verify_text_message_screen/verify_text_message_screen.dart';
+import 'package:verus_verisig/modules/features/mobile/verify_hash/logic/verify_hash_logic.dart';
 import 'package:verus_verisig/modules/features/mobile/verify_text_message/logic/verify_text_message_logic.dart';
 import 'package:verus_verisig/themes/default.dart';
-import 'modules/features/_main/home_screen/home_screen.dart';
-import 'modules/features/_main/verify_text_message_screen/verify_text_message_post_input_screen.dart';
-import 'modules/features/_main/verify_text_message_screen/verify_text_message_screen.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider( create: (context) => VerifyTextMessageLogic())
+        ChangeNotifierProvider( create: (context) => VerifyTextMessageLogic()),
+        ChangeNotifierProvider( create: (context) => VerifyHashLogic()),
       ],
       child: MyApp()
     ),
@@ -30,6 +34,8 @@ class MyApp extends StatelessWidget {
         '/' : (context) => BaseScreen(),
         VerifyTextMessageScreen.routeName : (context) => VerifyTextMessageScreen(),
         VerifyTextMessagePostInputScreen.routeName : (context) => VerifyTextMessagePostInputScreen(),
+        VerifyHashScreen.routeName : (context) => VerifyHashScreen(),
+        VerifyHashPostInputScreen.routeName : (context) => VerifyHashPostInputScreen(),
       },
     );
   }

@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:verus_verisig/domain/values/verification_status.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/services/message_validator_service.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/values/text_message_payload.dart';
+import 'package:verus_verisig/modules/features/mobile/verify_hash/services/hash_validator_service.dart';
+import 'package:verus_verisig/modules/features/mobile/verify_hash/values/hash_payload.dart';
 
-class VerifyTextMessageLogic extends ChangeNotifier {
+class VerifyHashLogic extends ChangeNotifier {
   final Map<String, String> _inputItem = {};
   Future _verificationResult;
   VerificationStatus _verificationStatus;
@@ -25,7 +25,7 @@ class VerifyTextMessageLogic extends ChangeNotifier {
     _verificationStatus = status;
   }
 
-  void verify(MessageValidatorService service, TextMessagePayload payload) {
+  void verify(HashValidatorService service, HashPayload payload) {
     _verificationResult = service.validate(payload).then(
       _handleResponse,
       onError: _handleError

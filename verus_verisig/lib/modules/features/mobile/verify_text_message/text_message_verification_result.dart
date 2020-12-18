@@ -3,12 +3,12 @@ import 'package:provider/provider.dart';
 import 'package:verus_verisig/domain/values/verification_status.dart';
 import 'package:verus_verisig/modules/features/mobile/verify_text_message/logic/verify_text_message_logic.dart';
 
-class VerificationResult extends StatefulWidget {
+class TextMessageVerificationResult extends StatefulWidget {
   @override
-  _VerificationResultState createState() => _VerificationResultState();
+  _TextMessageVerificationResultState createState() => _TextMessageVerificationResultState();
 }
 
-class _VerificationResultState extends State<VerificationResult> {
+class _TextMessageVerificationResultState extends State<TextMessageVerificationResult> {
 
   @override
   Widget build(BuildContext context) {
@@ -64,14 +64,15 @@ class _VerificationResultState extends State<VerificationResult> {
         ),
       );
       default: 
-        print(" 3 ");
-       return Container(
+        return Container(
         padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-        child: Text(
-          (result == 'true') ? "Valid": "Input combination is invalid",
-          style: Theme.of(context).textTheme.bodyText1,
-        ),
-      );
+          child: Text(
+            (result == 'true') ? "Valid": "Input combination is invalid",
+            style: Theme.of(context).textTheme.bodyText1.copyWith(
+              color: (result == 'true')? Colors.green : Colors.red
+            ),
+          ),
+        );
     }
   }
 

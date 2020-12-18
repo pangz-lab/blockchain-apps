@@ -3,8 +3,8 @@ import 'package:http/http.dart';
 import 'package:verus_verisig/domain/entities/payload_interface.dart';
 import 'package:verus_verisig/infrastructure/services/http_service/http_service.dart';
 
-class MessageValidatorService {
-  static const _url = 'https://verus.io/api/verusSignatureMessage';
+class HashValidatorService {
+  static const _url = 'https://verus.io/api/verusSignatureHash';
   static const _referer = 'https://verus.io/verify-signatures';
 
   Future<Response> validate(PayloadInterface payload) {

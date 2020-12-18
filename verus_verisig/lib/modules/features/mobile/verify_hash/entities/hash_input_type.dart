@@ -1,5 +1,5 @@
-class MessageInputType {
+class HashInputType {
   static const String id = "Identity";
-  static const String message = "Message";
+  static const String hash = "Hash";
   static const String signature = "Signature";
 }

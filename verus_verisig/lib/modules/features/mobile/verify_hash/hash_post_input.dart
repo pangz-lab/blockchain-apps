@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/services/message_form_service.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/entities/message_input_type.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/verification_result.dart';
+import 'package:verus_verisig/modules/features/mobile/verify_hash/entities/hash_input_type.dart';
+import 'package:verus_verisig/modules/features/mobile/verify_hash/hash_verification_result.dart';
+import 'package:verus_verisig/modules/features/mobile/verify_hash/services/hash_form_service.dart';
 import 'package:verus_verisig/styles/default.dart';
 
-class TextMessagePostInput extends StatelessWidget {
+class HashPostInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         SizedBox(height: 30),
-        Expanded(flex: 1, child: _lineItemTitle(context, "Message/Text")),
-        Expanded(flex: 4, child: _lineItem(context, _getInput(context, MessageInputType.message), 7)),
+        Flexible(flex: 3, child: HashVerificationResult()),
+        Divider(),
+        Expanded(flex: 1, child: _lineItemTitle(context, "Hash")),
+        Expanded(flex: 3, child: _lineItem(context, _getInput(context, HashInputType.hash), 4)),
         Expanded(flex: 1, child: _lineItemTitle(context, "VerusID/i-address")),
-        Expanded(flex: 2, child: _lineItem(context, _getInput(context, MessageInputType.id), 3)),
+        Expanded(flex: 3, child: _lineItem(context, _getInput(context, HashInputType.id), 4)),
         Expanded(flex: 1, child: _lineItemTitle(context, "Signature")),
-        Expanded(flex: 2, child: _lineItem(context, _getInput(context, MessageInputType.signature), 3)),
-        Flexible(flex: 3, child: VerificationResult()),
+        Expanded(flex: 3, child: _lineItem(context, _getInput(context, HashInputType.signature), 4)),
       ],
     );
   }
@@ -49,7 +50,7 @@ class TextMessagePostInput extends StatelessWidget {
     }
   
   String _getInput(context, key) {
-    return MessageFormService.getInput(context, key);
+    return HashFormService.getInput(context, key);
   }
 }
   

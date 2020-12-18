@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:verus_verisig/domain/values/verification_status.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/logic/verify_text_message_logic.dart';
+import 'package:verus_verisig/modules/features/mobile/verify_hash/logic/verify_hash_logic.dart';
 
-class VerificationResult extends StatefulWidget {
+class HashVerificationResult extends StatefulWidget {
   @override
-  _VerificationResultState createState() => _VerificationResultState();
+  _HashVerificationResultState createState() => _HashVerificationResultState();
 }
 
-class _VerificationResultState extends State<VerificationResult> {
+class _HashVerificationResultState extends State<HashVerificationResult> {
 
   @override
   Widget build(BuildContext context) {
     //@Todo _obj wrap in own service
     //@Todo improve this line
-    return Consumer<VerifyTextMessageLogic>(
+    return Consumer<VerifyHashLogic>(
       builder: (context, _obj, child) {
         return FutureBuilder(
           future: _obj.verificationResult,
@@ -64,14 +64,15 @@ class _VerificationResultState extends State<VerificationResult> {
         ),
       );
       default: 
-        print(" 3 ");
-       return Container(
+        return Container(
         padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-        child: Text(
-          (result == 'true') ? "Valid": "Input combination is invalid",
-          style: Theme.of(context).textTheme.bodyText1,
-        ),
-      );
+          child: Text(
+            (result == 'true') ? "Valid": "Input combination is invalid",
+            style: Theme.of(context).textTheme.bodyText1.copyWith(
+              color: (result == 'true')? Colors.green : Colors.red
+            ),
+          ),
+        );
     }
   }
 

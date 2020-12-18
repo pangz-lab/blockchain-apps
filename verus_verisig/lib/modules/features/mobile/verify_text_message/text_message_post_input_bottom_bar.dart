@@ -5,12 +5,12 @@ import 'package:verus_verisig/modules/features/_main/verify_text_message_screen/
 import 'package:verus_verisig/modules/features/mobile/verify_text_message/logic/verify_text_message_logic.dart';
 import 'package:verus_verisig/modules/features/mobile/verify_text_message/services/message_form_service.dart';
 
-class PostInputBottomAppBar extends StatefulWidget {
+class TextMessagePostInputBottomAppBar extends StatefulWidget {
   @override
-  _PostInputBottomAppBarState createState() => _PostInputBottomAppBarState();
+  _TextMessagePostInputBottomAppBarState createState() => _TextMessagePostInputBottomAppBarState();
 }
 
-class _PostInputBottomAppBarState extends State<PostInputBottomAppBar> {
+class _TextMessagePostInputBottomAppBarState extends State<TextMessagePostInputBottomAppBar> {
   @override
   Widget build(BuildContext context) {
     return Consumer<VerifyTextMessageLogic>(

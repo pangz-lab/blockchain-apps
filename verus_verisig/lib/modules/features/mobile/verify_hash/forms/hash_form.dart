@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:verus_verisig/modules/components/default_text_input_field.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/services/message_form_service.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/entities/message_input_type.dart';
+import 'package:verus_verisig/modules/features/mobile/verify_hash/entities/hash_input_type.dart';
+import 'package:verus_verisig/modules/features/mobile/verify_hash/services/hash_form_service.dart';
 import 'package:verus_verisig/styles/default.dart';
 
-class MessageTextForm extends StatefulWidget {
+class HashForm extends StatefulWidget {
   final GlobalKey<FormState> formKey;
-  MessageTextForm(this.formKey);
+  HashForm(this.formKey);
   @override
-  _MessageTextFormState createState() => _MessageTextFormState();
+  _HashFormState createState() => _HashFormState();
 }
 
-class _MessageTextFormState extends State<MessageTextForm> {
+class _HashFormState extends State<HashForm> {
   final _messageTextCtrl = TextEditingController();
   final _verusIdCtrl = TextEditingController();
   final _signatureCtrl = TextEditingController();
@@ -41,21 +41,21 @@ class _MessageTextFormState extends State<MessageTextForm> {
       child: Column(
         children: [
           Flexible(
-            flex: 2,
+            flex: 1,
             child: DefaultTextInputField(
-              title: "Message Text",
+              title: "Hash",
               controller: this._messageTextCtrl,
               style: this._inputStyle,
-              maxLines: 15,
-              minLines: 15,
+              maxLines: 10,
+              minLines: 10,
               onEditingComplete: () {
                 FocusScope.of(context).requestFocus(nodeVerusId);
               },
               validator: (value) {
                 if (value.isEmpty) {
-                  return 'Message or text is required';
+                  return 'Hash is required';
                 }
-                this._saveInput(context, MessageInputType.message, value);
+                this._saveInput(context, HashInputType.hash, value);
                 return null;
               },
             ),
@@ -67,8 +67,8 @@ class _MessageTextFormState extends State<MessageTextForm> {
               focusNode: nodeVerusId,
               controller: this._verusIdCtrl,
               style: this._inputStyle,
-              maxLines: 5,
-              minLines: 5,
+              maxLines: 10,
+              minLines: 10,
               onEditingComplete: () {
                 FocusScope.of(context).requestFocus(nodeSignature);
               },
@@ -76,7 +76,7 @@ class _MessageTextFormState extends State<MessageTextForm> {
                 if (value.isEmpty) {
                   return 'VerusID or i-address is required';
                 }
-                this._saveInput(context, MessageInputType.id, value);
+                this._saveInput(context, HashInputType.id, value);
                 return null;
               },
             ),
@@ -88,8 +88,8 @@ class _MessageTextFormState extends State<MessageTextForm> {
               focusNode: nodeSignature,
               controller: this._signatureCtrl,
               style: this._inputStyle,
-              maxLines: 5,
-              minLines: 5,
+              maxLines: 10,
+              minLines: 10,
               onEditingComplete: () {
                 FocusScope.of(context).requestFocus(nodeSubmitButton);
               },
@@ -97,7 +97,7 @@ class _MessageTextFormState extends State<MessageTextForm> {
                 if (value.isEmpty) {
                   return 'Verus Signature is required';
                 }
-                this._saveInput(context, MessageInputType.signature, value);
+                this._saveInput(context, HashInputType.signature, value);
                 return null;
               },
             ),
@@ -109,26 +109,26 @@ class _MessageTextFormState extends State<MessageTextForm> {
 
   void _setupTextFieldsValue() {
     _messageTextCtrl.value = _messageTextCtrl.value.copyWith(
-      text: _setInitialValue(context, MessageInputType.message)
+      text: _setInitialValue(context, HashInputType.hash)
     );
     _verusIdCtrl.value = _verusIdCtrl.value.copyWith(
-      text: _setInitialValue(context, MessageInputType.id)
+      text: _setInitialValue(context, HashInputType.id)
     );
     _signatureCtrl.value = _signatureCtrl.value.copyWith(
-      text: _setInitialValue(context, MessageInputType.signature)
+      text: _setInitialValue(context, HashInputType.signature)
     );
   }
 
   void _saveInput(context, String key, String input) {
-    MessageFormService.saveInput(context, key, input);
+    HashFormService.saveInput(context, key, input);
   }
 
   String _getInput(context, key) {
-    return MessageFormService.getInput(context, key);
+    return HashFormService.getInput(context, key);
   }
 
   bool _isInUpdateMode(context) {
-    return MessageFormService.isInUpdateMode(context) ?? false;
+    return HashFormService.isInUpdateMode(context) ?? false;
   }
 
   String _setInitialValue(context, String key) {

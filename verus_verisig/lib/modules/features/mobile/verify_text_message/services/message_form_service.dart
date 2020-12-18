@@ -31,7 +31,12 @@ class MessageFormService {
   }
 
   static void showMessageSnackBar(context, String message) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: Duration(seconds: 1),
+      )
+    );
   }
 
   static void verify(BuildContext context) {

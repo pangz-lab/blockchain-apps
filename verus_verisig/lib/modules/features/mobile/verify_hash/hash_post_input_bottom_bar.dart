@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:verus_verisig/modules/components/default_button_primary.dart';
-import 'package:verus_verisig/modules/features/_main/verify_text_message_screen/verify_text_message_screen.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/logic/verify_text_message_logic.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/services/message_form_service.dart';
+import 'package:verus_verisig/modules/features/_main/verify_hash_screen/verify_hash_screen.dart';
+import 'package:verus_verisig/modules/features/mobile/verify_hash/logic/verify_hash_logic.dart';
+import 'package:verus_verisig/modules/features/mobile/verify_hash/services/hash_form_service.dart';
 
-class PostInputBottomAppBar extends StatefulWidget {
+class HashPostInputBottomAppBar extends StatefulWidget {
   @override
-  _PostInputBottomAppBarState createState() => _PostInputBottomAppBarState();
+  _HashPostInputBottomAppBarState createState() => _HashPostInputBottomAppBarState();
 }
 
-class _PostInputBottomAppBarState extends State<PostInputBottomAppBar> {
+class _HashPostInputBottomAppBarState extends State<HashPostInputBottomAppBar> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<VerifyTextMessageLogic>(
+    return Consumer<VerifyHashLogic>(
       builder: (context, _obj, child) {
         return FutureBuilder(
           future: _obj.verificationResult,
@@ -80,18 +80,18 @@ class _PostInputBottomAppBarState extends State<PostInputBottomAppBar> {
   }
 
   void _setUpdateInput(context, bool update) {
-    MessageFormService.setUpdateMode(context, update);
+    HashFormService.setUpdateMode(context, update);
   }
 
   void _editScreen(context) {
     Navigator.popAndPushNamed(
       context,
-      VerifyTextMessageScreen.routeName
+      VerifyHashScreen.routeName
     );
   }
 
   void _showProcessOngoingMessage(context) {
-    MessageFormService.showMessageSnackBar(
+    HashFormService.showMessageSnackBar(
       context,
       'Verification is ongoing. Please wait...'
     );
