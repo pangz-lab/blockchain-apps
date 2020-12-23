@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:verus_verisig/modules/components/default_button_primary.dart';
-import 'package:verus_verisig/modules/features/_main/verify_text_message_screen/verify_text_message_screen.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/logic/verify_text_message_logic.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/services/message_form_service.dart';
+import 'package:verus_verify/modules/components/default_button_primary.dart';
+import 'package:verus_verify/modules/features/_main/verify_text_message_screen/verify_text_message_screen.dart';
+import 'package:verus_verify/modules/features/mobile/verify_text_message/logic/verify_text_message_logic.dart';
+import 'package:verus_verify/modules/features/mobile/verify_text_message/services/message_form_service.dart';
 
 class TextMessagePostInputBottomAppBar extends StatefulWidget {
   @override

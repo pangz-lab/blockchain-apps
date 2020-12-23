@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:verus_verisig/modules/components/default_button_primary.dart';
-import 'package:verus_verisig/modules/features/_main/verify_hash_screen/verify_hash_screen.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/logic/verify_hash_logic.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/services/hash_form_service.dart';
+import 'package:verus_verify/modules/components/default_button_primary.dart';
+import 'package:verus_verify/modules/features/_main/verify_hash_screen/verify_hash_screen.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/logic/verify_hash_logic.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/services/hash_form_service.dart';
 
 class HashPostInputBottomAppBar extends StatefulWidget {
   @override

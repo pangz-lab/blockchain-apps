@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/text_message_post_input.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/text_message_post_input_bottom_bar.dart';
+import 'package:verus_verify/modules/features/mobile/verify_text_message/text_message_post_input.dart';
+import 'package:verus_verify/modules/features/mobile/verify_text_message/text_message_post_input_bottom_bar.dart';
 
 class VerifyTextMessagePostInputScreen extends StatelessWidget {
   const VerifyTextMessagePostInputScreen({Key key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:verus_verisig/domain/values/verification_status.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/logic/verify_text_message_logic.dart';
+import 'package:verus_verify/domain/values/verification_status.dart';
+import 'package:verus_verify/modules/features/mobile/verify_text_message/logic/verify_text_message_logic.dart';
 
 class TextMessageVerificationResult extends StatefulWidget {
   @override

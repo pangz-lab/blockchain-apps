@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:verus_verisig/modules/components/default_button_primary.dart';
-import 'package:verus_verisig/modules/features/_main/verify_file_screen/verify_file_screen.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_file/logic/verify_file_logic.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_file/services/file_form_service.dart';
+import 'package:verus_verify/modules/components/default_button_primary.dart';
+import 'package:verus_verify/modules/features/_main/verify_file_screen/verify_file_screen.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/logic/verify_file_logic.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/services/file_form_service.dart';
 
 class FilePostInputBottomAppBar extends StatefulWidget {
   @override

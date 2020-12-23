@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/entities/hash_input_type.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/hash_verification_result.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/services/hash_form_service.dart';
-import 'package:verus_verisig/styles/default.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/entities/hash_input_type.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/hash_verification_result.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/services/hash_form_service.dart';
+import 'package:verus_verify/styles/default.dart';
 
 class HashPostInput extends StatelessWidget {
 

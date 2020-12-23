@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:verus_verisig/styles/default.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_file/entities/file_input_type.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_file/file_verification_result.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_file/services/file_form_service.dart';
+import 'package:verus_verify/styles/default.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/entities/file_input_type.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/file_verification_result.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/services/file_form_service.dart';
 
 class FilePostInput extends StatelessWidget {
 
@@ -14,11 +14,13 @@ class FilePostInput extends StatelessWidget {
         Flexible(flex: 3, child: FileVerificationResult()),
         Divider(),
         Expanded(flex: 1, child: _lineItemTitle(context, "File")),
-        Expanded(flex: 3, child: _lineItem(context, _getInput(context, FileInputType.file), 4)),
+        Expanded(flex: 2, child: _lineItem(context, _getInput(context, FileInputType.file), 2)),
+        Expanded(flex: 1, child: _lineItemTitle(context, "Hash")),
+        Expanded(flex: 3, child: _lineItem(context, _getInput(context, FileInputType.hash), 3)),
         Expanded(flex: 1, child: _lineItemTitle(context, "VerusID/i-address")),
-        Expanded(flex: 3, child: _lineItem(context, _getInput(context, FileInputType.id), 4)),
+        Expanded(flex: 2, child: _lineItem(context, _getInput(context, FileInputType.id), 2)),
         Expanded(flex: 1, child: _lineItemTitle(context, "Signature")),
-        Expanded(flex: 3, child: _lineItem(context, _getInput(context, FileInputType.signature), 4)),
+        Expanded(flex: 2, child: _lineItem(context, _getInput(context, FileInputType.signature), 2)),
       ],
     );
   }

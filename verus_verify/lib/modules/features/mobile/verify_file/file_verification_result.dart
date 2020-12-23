@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:verus_verisig/domain/values/verification_status.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_file/logic/verify_file_logic.dart';
+import 'package:verus_verify/domain/values/verification_status.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/logic/verify_file_logic.dart';
 
 class FileVerificationResult extends StatefulWidget {
   @override

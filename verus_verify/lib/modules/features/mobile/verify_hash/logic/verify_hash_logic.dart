@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:verus_verisig/domain/values/verification_status.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/services/hash_validator_service.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/values/hash_payload.dart';
+import 'package:verus_verify/domain/values/verification_status.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/services/hash_validator_service.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/values/hash_payload.dart';
 
 class VerifyHashLogic extends ChangeNotifier {
   final Map<String, String> _inputItem = {};

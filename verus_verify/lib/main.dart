@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:verus_verisig/modules/features/_main/home_screen/home_screen.dart';
-import 'package:verus_verisig/modules/features/_main/verify_file_screen/verify_file_post_input_screen.dart';
-import 'package:verus_verisig/modules/features/_main/verify_file_screen/verify_file_screen.dart';
-import 'package:verus_verisig/modules/features/_main/verify_hash_screen/verify_hash_post_input_screen.dart';
-import 'package:verus_verisig/modules/features/_main/verify_hash_screen/verify_hash_screen.dart';
-import 'package:verus_verisig/modules/features/_main/verify_text_message_screen/verify_text_message_post_input_screen.dart';
-import 'package:verus_verisig/modules/features/_main/verify_text_message_screen/verify_text_message_screen.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_file/logic/verify_file_logic.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/logic/verify_hash_logic.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/logic/verify_text_message_logic.dart';
-import 'package:verus_verisig/themes/default.dart';
+import 'package:verus_verify/modules/features/_main/home_screen/home_screen.dart';
+import 'package:verus_verify/modules/features/_main/verify_file_screen/verify_file_post_input_screen.dart';
+import 'package:verus_verify/modules/features/_main/verify_file_screen/verify_file_screen.dart';
+import 'package:verus_verify/modules/features/_main/verify_hash_screen/verify_hash_post_input_screen.dart';
+import 'package:verus_verify/modules/features/_main/verify_hash_screen/verify_hash_screen.dart';
+import 'package:verus_verify/modules/features/_main/verify_text_message_screen/verify_text_message_post_input_screen.dart';
+import 'package:verus_verify/modules/features/_main/verify_text_message_screen/verify_text_message_screen.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/logic/verify_file_logic.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/logic/verify_hash_logic.dart';
+import 'package:verus_verify/modules/features/mobile/verify_text_message/logic/verify_text_message_logic.dart';
+import 'package:verus_verify/themes/default.dart';
 
 void main() {
   runApp(
@@ -77,26 +77,29 @@ class _BaseScreentState extends State<BaseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Verus VeriSig'),
+        title: const Text('Verus Verify'),
       ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: HomeScreen()
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Setting',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
-      ),
+      // body: Center(
+      //   child: _widgetOptions.elementAt(_selectedIndex),
+      // ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: const <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.home),
+      //       label: 'Home',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.settings),
+      //       label: 'Setting',
+      //     ),
+      //   ],
+      //   currentIndex: _selectedIndex,
+      //   selectedItemColor: Colors.amber[800],
+      //   onTap: _onItemTapped,
+      // ),
     );
   }
 }

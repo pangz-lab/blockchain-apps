@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:verus_verisig/modules/components/default_text_input_field.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/services/message_form_service.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/entities/message_input_type.dart';
-import 'package:verus_verisig/styles/default.dart';
+import 'package:verus_verify/modules/components/default_text_input_field.dart';
+import 'package:verus_verify/modules/features/mobile/verify_text_message/services/message_form_service.dart';
+import 'package:verus_verify/modules/features/mobile/verify_text_message/entities/message_input_type.dart';
+import 'package:verus_verify/styles/default.dart';
 
 class MessageTextForm extends StatefulWidget {
   final GlobalKey<FormState> formKey;

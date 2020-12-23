@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:verus_verisig/domain/values/verification_status.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/services/message_validator_service.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/values/text_message_payload.dart';
+import 'package:verus_verify/domain/values/verification_status.dart';
+import 'package:verus_verify/modules/features/mobile/verify_text_message/services/message_validator_service.dart';
+import 'package:verus_verify/modules/features/mobile/verify_text_message/values/text_message_payload.dart';
 
 class VerifyTextMessageLogic extends ChangeNotifier {
   final Map<String, String> _inputItem = {};

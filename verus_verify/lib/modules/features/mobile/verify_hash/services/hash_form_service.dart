@@ -1,12 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:verus_verisig/domain/values/verification_status.dart';
-import 'package:verus_verisig/modules/features/_main/verify_hash_screen/verify_hash_post_input_screen.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/entities/hash_input_type.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/logic/verify_hash_logic.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/services/hash_validator_service.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/values/hash_payload.dart';
+import 'package:verus_verify/domain/values/verification_status.dart';
+import 'package:verus_verify/modules/features/_main/verify_hash_screen/verify_hash_post_input_screen.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/entities/hash_input_type.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/logic/verify_hash_logic.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/services/hash_validator_service.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/values/hash_payload.dart';
 
 class HashFormService {
   

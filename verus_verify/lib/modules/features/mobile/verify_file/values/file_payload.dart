@@ -1,5 +1,5 @@
-import 'package:verus_verisig/domain/entities/payload_interface.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_file/entities/file_input_type.dart';
+import 'package:verus_verify/domain/entities/payload_interface.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/entities/file_input_type.dart';
 
 class FilePayload extends PayloadInterface {
   final String file;

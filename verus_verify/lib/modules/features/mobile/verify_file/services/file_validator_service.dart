@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart';
-import 'package:verus_verisig/domain/entities/payload_interface.dart';
-import 'package:verus_verisig/infrastructure/services/http_service/http_service.dart';
+import 'package:verus_verify/domain/entities/payload_interface.dart';
+import 'package:verus_verify/infrastructure/services/http_service/http_service.dart';
 
 class FileValidatorService {
   static const _url = 'https://verus.io/api/verusSignatureHash';

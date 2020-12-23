@@ -1,9 +1,10 @@
+
 import 'package:flutter/material.dart';
-import 'package:verus_verisig/styles/default.dart';
-import 'package:verus_verisig/modules/components/default_text_input_field.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_file/entities/file_input_type.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_file/services/file_form_service.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_file/file_selector.dart';
+import 'package:verus_verify/styles/default.dart';
+import 'package:verus_verify/modules/components/default_text_input_field.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/entities/file_input_type.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/services/file_form_service.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/file_selector.dart';
 
 class FileForm extends StatefulWidget {
   final GlobalKey<FormState> formKey;
@@ -13,7 +14,7 @@ class FileForm extends StatefulWidget {
 }
 
 class _FileFormState extends State<FileForm> {
-  final _messageTextCtrl = TextEditingController();
+  final _fileTextCtrl = TextEditingController();
   final _verusIdCtrl = TextEditingController();
   final _signatureCtrl = TextEditingController();
   FocusNode nodeFile = FocusNode();
@@ -30,7 +31,7 @@ class _FileFormState extends State<FileForm> {
 
   @override
   void dispose() {
-    _messageTextCtrl.dispose();
+    _fileTextCtrl.dispose();
     _verusIdCtrl.dispose();
     _signatureCtrl.dispose();
     super.dispose();
@@ -45,56 +46,6 @@ class _FileFormState extends State<FileForm> {
           Flexible(
             flex: 1,
             child: FileSelector()
-            
-            // Container(
-            //   alignment: Alignment.center,
-            //   width: double.maxFinite,
-            //   height: double.maxFinite,
-            //   padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-            //   child: SizedBox.expand(
-            //     child: ElevatedButton(
-            //       focusNode: nodeFile,
-            //       child: Text("Select a file"),
-            //       onPressed: () {
-            //         FocusScope.of(context).requestFocus(nodeVerusId);
-            //       },
-            //     ),
-            //   )
-            // ),
-            
-            // Stack(
-            //   children: [
-            //     Container(
-            //       alignment: Alignment.center,
-            //       width: double.maxFinite,
-            //       height: double.maxFinite,
-            //       padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-            //       child: SizedBox.expand(
-            //         child: ElevatedButton(
-            //           child: Text("Select a file"),
-            //           onPressed: () {},
-            //         ),
-            //       )
-            //     ),
-            //     DefaultTextInputField(
-            //       title: "File",
-            //       controller: this._messageTextCtrl,
-            //       style: this._inputStyle,
-            //       maxLines: 10,
-            //       minLines: 10,
-            //       onEditingComplete: () {
-            //         FocusScope.of(context).requestFocus(nodeVerusId);
-            //       },
-            //       validator: (value) {
-            //         if (value.isEmpty) {
-            //           return 'File is required';
-            //         }
-            //         this._saveInput(context, FileInputType.file, value);
-            //         return null;
-            //       },
-            //     )
-            //   ],
-            // ),
           ),
           Flexible(
             flex: 1,
@@ -144,9 +95,6 @@ class _FileFormState extends State<FileForm> {
   }
 
   void _setupTextFieldsValue() {
-    _messageTextCtrl.value = _messageTextCtrl.value.copyWith(
-      text: _setInitialValue(context, FileInputType.file)
-    );
     _verusIdCtrl.value = _verusIdCtrl.value.copyWith(
       text: _setInitialValue(context, FileInputType.id)
     );
@@ -159,6 +107,10 @@ class _FileFormState extends State<FileForm> {
     FileFormService.saveInput(context, key, input);
   }
 
+  void _resetInput(context) {
+    FileFormService.resetInput(context);
+  }
+
   String _getInput(context, key) {
     return FileFormService.getInput(context, key);
   }
@@ -168,6 +120,11 @@ class _FileFormState extends State<FileForm> {
   }
 
   String _setInitialValue(context, String key) {
-    return (_isInUpdateMode(context)) ? _getInput(context, key) : "";
+    if(_isInUpdateMode(context)) {
+      return _getInput(context, key);
+    } else {
+      _resetInput(context);
+      return "";
+    }
   }
 }

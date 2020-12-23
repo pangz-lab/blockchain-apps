@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:verus_verisig/modules/components/default_button_primary.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_file/forms/file_form.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_file/services/file_form_service.dart';
+import 'package:verus_verify/modules/components/default_button_primary.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/forms/file_form.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/services/file_form_service.dart';
+import 'package:verus_verify/modules/features/mobile/verify_file/entities/file_input_type.dart';
 
 class VerifyFileScreen extends StatelessWidget {
   VerifyFileScreen({Key key}) : super(key: key);
@@ -25,10 +26,10 @@ class VerifyFileScreen extends StatelessWidget {
             title: 'Submit',
             icon: Icons.send,
             onPressed: () {
-              if (!_formKey.currentState.validate()) {
-                this._showInputIncompleteMessage(context);
-              } else {
+              if (_formKey.currentState.validate() && _fileIsSelected(context)) {
                 this._submit(context);
+              } else {
+                this._showInputIncompleteMessage(context);
               }
             },
           ),
@@ -48,5 +49,9 @@ class VerifyFileScreen extends StatelessWidget {
       context,
       'Please complete the form input'
     );
+  }
+
+  bool _fileIsSelected(context) {
+    return (FileFormService.getInput(context, FileInputType.file) != null);
   }
 }

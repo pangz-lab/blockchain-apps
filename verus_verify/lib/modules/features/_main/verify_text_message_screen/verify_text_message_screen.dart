@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:verus_verisig/modules/components/default_button_primary.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/forms/message_text_form.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_text_message/services/message_form_service.dart';
+import 'package:verus_verify/modules/components/default_button_primary.dart';
+import 'package:verus_verify/modules/features/mobile/verify_text_message/forms/message_text_form.dart';
+import 'package:verus_verify/modules/features/mobile/verify_text_message/services/message_form_service.dart';
 
 class VerifyTextMessageScreen extends StatelessWidget {
   VerifyTextMessageScreen({Key key}) : super(key: key);

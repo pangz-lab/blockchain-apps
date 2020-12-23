@@ -7,9 +7,9 @@ class ThemeDefault {
       headline1: const TextStyle(
         height: 1.0,
         fontSize: 35.0,
-        fontFamily: "Roboto",
+        fontFamily: "Montserrat",
         fontWeight: FontWeight.w900,
-        fontFamilyFallback: ["Source Sans Pro", "sans-serif"],
+        fontFamilyFallback: ["Roboto Slab", "Source Sans Pro", "sans-serif"],
         color: Colors.black38,
       ),
       headline2: const TextStyle(
@@ -28,7 +28,7 @@ class ThemeDefault {
       ),
       bodyText2: const TextStyle(
         height: 1.0,
-        fontSize: 20.0,
+        fontSize: 34.0,
         fontFamily: "Roboto",
         fontFamilyFallback: ["Source Sans Pro", "sans-serif"],
         color: Colors.black87,

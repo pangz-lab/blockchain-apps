@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:verus_verisig/modules/components/default_text_input_field.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/entities/hash_input_type.dart';
-import 'package:verus_verisig/modules/features/mobile/verify_hash/services/hash_form_service.dart';
-import 'package:verus_verisig/styles/default.dart';
+import 'package:verus_verify/modules/components/default_text_input_field.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/entities/hash_input_type.dart';
+import 'package:verus_verify/modules/features/mobile/verify_hash/services/hash_form_service.dart';
+import 'package:verus_verify/styles/default.dart';
 
 class HashForm extends StatefulWidget {
   final GlobalKey<FormState> formKey;
@@ -12,7 +12,7 @@ class HashForm extends StatefulWidget {
 }
 
 class _HashFormState extends State<HashForm> {
-  final _messageTextCtrl = TextEditingController();
+  final _hashTextCtrl = TextEditingController();
   final _verusIdCtrl = TextEditingController();
   final _signatureCtrl = TextEditingController();
   FocusNode nodeVerusId = FocusNode();
@@ -28,7 +28,7 @@ class _HashFormState extends State<HashForm> {
 
   @override
   void dispose() {
-    _messageTextCtrl.dispose();
+    _hashTextCtrl.dispose();
     _verusIdCtrl.dispose();
     _signatureCtrl.dispose();
     super.dispose();
@@ -44,7 +44,7 @@ class _HashFormState extends State<HashForm> {
             flex: 1,
             child: DefaultTextInputField(
               title: "Hash",
-              controller: this._messageTextCtrl,
+              controller: this._hashTextCtrl,
               style: this._inputStyle,
               maxLines: 10,
               minLines: 10,
@@ -108,7 +108,7 @@ class _HashFormState extends State<HashForm> {
   }
 
   void _setupTextFieldsValue() {
-    _messageTextCtrl.value = _messageTextCtrl.value.copyWith(
+    _hashTextCtrl.value = _hashTextCtrl.value.copyWith(
       text: _setInitialValue(context, HashInputType.hash)
     );
     _verusIdCtrl.value = _verusIdCtrl.value.copyWith(
