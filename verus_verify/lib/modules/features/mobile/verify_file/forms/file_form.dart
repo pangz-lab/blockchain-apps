@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:verus_verify/modules/components/default_header_primary.dart';
 import 'package:verus_verify/styles/default.dart';
 import 'package:verus_verify/modules/components/default_text_input_field.dart';
 import 'package:verus_verify/modules/features/mobile/verify_file/entities/file_input_type.dart';
@@ -43,12 +44,17 @@ class _FileFormState extends State<FileForm> {
       key: widget.formKey,
       child: Column(
         children: [
+          Expanded(
+            flex: 2,
+            child: DefaultHeaderPrimary(title: "📑 File")
+          ),
+          Divider(),
           Flexible(
-            flex: 1,
+            flex: 2,
             child: FileSelector()
           ),
           Flexible(
-            flex: 1,
+            flex: 2,
             child: DefaultTextInputField(
               title: "VerusId/i-Address",
               focusNode: nodeVerusId,
@@ -69,7 +75,7 @@ class _FileFormState extends State<FileForm> {
             ),
           ),
           Flexible(
-            flex:1,
+            flex: 2,
             child: DefaultTextInputField(
               title: "Signature",
               focusNode: nodeSignature,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:verus_verify/modules/components/default_appbar_primary.dart';
 import 'package:verus_verify/modules/components/default_button_primary.dart';
 import 'package:verus_verify/modules/features/mobile/verify_hash/forms/hash_form.dart';
 import 'package:verus_verify/modules/features/mobile/verify_hash/services/hash_form_service.dart';
@@ -11,8 +12,11 @@ class VerifyHashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Center(child: const Text('Verify Hash')),
+      appBar: DefaultAppBarPrimary(
+        title: "Verification Data",
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
       body: Center(
         child: HashForm(_formKey),

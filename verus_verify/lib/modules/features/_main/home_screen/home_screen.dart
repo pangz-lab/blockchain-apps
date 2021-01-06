@@ -2,72 +2,88 @@
 // import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:verus_verify/modules/components/default_button_primary.dart';
 import 'package:verus_verify/modules/features/_main/verify_file_screen/verify_file_screen.dart';
 import 'package:verus_verify/modules/features/_main/verify_hash_screen/verify_hash_screen.dart';
 import 'package:verus_verify/modules/features/_main/verify_text_message_screen/verify_text_message_screen.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const routeName = "/home";
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      // width: 400.0,
-      // height: 80.0,
-      // padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
       child: Column(
         children: [
-          // Expanded(
-          //   child: 
-            Row(
-              children: [
-                Container(
-                  width: 80,
-                  height: 80,
-                  child: Text("🥐",
-                    style: Theme.of(context).textTheme.headline1
-                  ),
-                ),
-                FlatButton(
-                  onPressed : () {
-                    Navigator.pushNamed(context, VerifyTextMessageScreen.routeName);
-                  },
-                  child: Text(
-                    " Message/Text",
-                    style: Theme.of(context).textTheme.bodyText2
-                  )
-                )
-              ],
-            ),
-          // ),
-          DefaultButtonPrimary(
-            key: Key("menuMessageText"),
-            title: "Message/Text 🥐",
-            icon: FontAwesomeIcons.spellCheck,
-            onPressed : () {
+          SizedBox(height: 100.0),
+          Divider(),
+          _menuItem(
+            context,
+            prefix: "🔠",
+            title: "Message/Text",
+            onPressed: () {
               Navigator.pushNamed(context, VerifyTextMessageScreen.routeName);
             }
           ),
-          DefaultButtonPrimary(
-            key: Key("menuFile"),
-            title: "📑 File",
-            icon: FontAwesomeIcons.fileAlt,
-            onPressed : () {
+          Divider(),
+          _menuItem(
+            context,
+            prefix: "📑",
+            title: "File",
+            onPressed: () {
               Navigator.pushNamed(context, VerifyFileScreen.routeName);
             }
           ),
-          DefaultButtonPrimary(
-            key: Key("menuHash"),
+          Divider(),
+          _menuItem(
+            context,
+            prefix: "#️⃣",
             title: "Hash",
-            icon: FontAwesomeIcons.hashtag,
-            onPressed : () {
+            onPressed: () {
               Navigator.pushNamed(context, VerifyHashScreen.routeName);
             }
           ),
+          Divider(),
         ],
       )
       
+    );
+  }
+
+  Widget _menuItem(context, {String prefix, String title, Function onPressed}) {
+    return Row(
+      children: [
+        Expanded(
+          flex: 1,
+          child: Container(
+            child: Center(
+              child: Text(
+                prefix,
+                style: Theme.of(context).textTheme.headline3
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child: FlatButton(
+            onPressed : () {
+              onPressed();
+            },
+            child: Text(
+              title,
+              style: Theme.of(context).textTheme.headline3
+            )
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Icon(
+            Icons.arrow_right_rounded,
+            size: 50.0,
+            color: Colors.black45,
+          )
+        )
+      ],
     );
   }
 }

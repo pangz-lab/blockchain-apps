@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:verus_verify/modules/features/_main/home_screen/home_screen.dart';
 import 'package:verus_verify/modules/features/_main/verify_file_screen/verify_file_post_input_screen.dart';
@@ -13,6 +14,9 @@ import 'package:verus_verify/modules/features/mobile/verify_text_message/logic/v
 import 'package:verus_verify/themes/default.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+      
   runApp(
     MultiProvider(
       providers: [

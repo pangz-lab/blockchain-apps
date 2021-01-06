@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:verus_verify/modules/components/default_appbar_primary.dart';
 import 'package:verus_verify/modules/components/default_button_primary.dart';
 import 'package:verus_verify/modules/features/mobile/verify_file/forms/file_form.dart';
 import 'package:verus_verify/modules/features/mobile/verify_file/services/file_form_service.dart';
@@ -12,8 +13,11 @@ class VerifyFileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Center(child: const Text('Verify File')),
+      appBar: DefaultAppBarPrimary(
+        title: "Verification Data",
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
       body: Center(
         child: FileForm(_formKey),

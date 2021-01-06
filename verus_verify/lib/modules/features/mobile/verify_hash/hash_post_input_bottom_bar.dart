@@ -38,7 +38,7 @@ class _HashPostInputBottomAppBarState extends State<HashPostInputBottomAppBar> {
         children: [
           _buttonWrapper(
             DefaultButtonPrimary(
-              title: 'Update Input',
+              title: 'Update Input Data',
               icon: Icons.edit,
               onPressed: (enableButton) ? () {
                 _setUpdateInput(context, true);

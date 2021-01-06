@@ -38,7 +38,7 @@ class _FilePostInputBottomAppBarState extends State<FilePostInputBottomAppBar> {
         children: [
           _buttonWrapper(
             DefaultButtonPrimary(
-              title: 'Update Input',
+              title: 'Update Input Data',
               icon: Icons.edit,
               onPressed: (enableButton) ? () {
                 _setUpdateInput(context, true);
@@ -54,6 +54,10 @@ class _FilePostInputBottomAppBarState extends State<FilePostInputBottomAppBar> {
               onPressed: (enableButton) ? () {
                 _editScreen(context);
               } : () { _showProcessOngoingMessage(context); },
+              // style: ButtonStyle(
+              //   backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(74, 166, 88, 1)),
+              //   textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(fontSize: 20.0, color: Colors.white)),
+              // ).merge(Theme.of(context).elevatedButtonTheme.style),
             ),
             const EdgeInsets.fromLTRB(16, 2, 16, 16)
           )

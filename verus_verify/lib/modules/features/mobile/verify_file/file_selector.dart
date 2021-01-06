@@ -31,6 +31,9 @@ class _FileSelectorState extends State<FileSelector> {
         child: ElevatedButton(
           child: Text(_textContent),
           onPressed: () {_pressed(context);},
+          style: ElevatedButton.styleFrom(
+            primary: Theme.of(context).buttonColor,
+          )
         ),
       )
     );

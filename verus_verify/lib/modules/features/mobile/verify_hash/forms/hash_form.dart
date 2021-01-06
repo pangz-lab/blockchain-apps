@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:verus_verify/modules/components/default_header_primary.dart';
 import 'package:verus_verify/modules/components/default_text_input_field.dart';
 import 'package:verus_verify/modules/features/mobile/verify_hash/entities/hash_input_type.dart';
 import 'package:verus_verify/modules/features/mobile/verify_hash/services/hash_form_service.dart';
@@ -40,6 +41,11 @@ class _HashFormState extends State<HashForm> {
       key: widget.formKey,
       child: Column(
         children: [
+          Expanded(
+            flex: 1,
+            child: DefaultHeaderPrimary(title: "#️⃣ Hash")
+          ),
+          Divider(),
           Flexible(
             flex: 1,
             child: DefaultTextInputField(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:verus_verify/modules/components/default_appbar_primary.dart';
 import 'package:verus_verify/modules/components/default_button_primary.dart';
 import 'package:verus_verify/modules/features/mobile/verify_text_message/forms/message_text_form.dart';
 import 'package:verus_verify/modules/features/mobile/verify_text_message/services/message_form_service.dart';
@@ -11,8 +12,11 @@ class VerifyTextMessageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Center(child: const Text('Verify Message/Text')),
+      appBar: DefaultAppBarPrimary(
+        title: "Verification Data",
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
       body: Center(
         child: MessageTextForm(_formKey),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:verus_verify/modules/components/default_header_primary.dart';
 import 'package:verus_verify/modules/components/default_text_input_field.dart';
 import 'package:verus_verify/modules/features/mobile/verify_text_message/services/message_form_service.dart';
 import 'package:verus_verify/modules/features/mobile/verify_text_message/entities/message_input_type.dart';
@@ -40,8 +41,13 @@ class _MessageTextFormState extends State<MessageTextForm> {
       key: widget.formKey,
       child: Column(
         children: [
+          Expanded(
+            flex: 1,
+            child: DefaultHeaderPrimary(title: "🔠 Message/Text")
+          ),
+          Divider(),
           Flexible(
-            flex: 2,
+            flex: 1,
             child: DefaultTextInputField(
               title: "Message Text",
               controller: this._messageTextCtrl,

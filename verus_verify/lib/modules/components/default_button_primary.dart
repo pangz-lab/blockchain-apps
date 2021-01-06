@@ -7,10 +7,12 @@ class DefaultButtonPrimary extends StatelessWidget {
     this.icon,
     this.focusNode,
     this.onPressed,
+    this.style,
     key
   }) : super(key: key);
   
   final VoidCallback onPressed;
+  final ButtonStyle style;
   final String title;
   final IconData icon;
   final FocusNode focusNode;
@@ -21,13 +23,7 @@ class DefaultButtonPrimary extends StatelessWidget {
       width: 350,
       child: ElevatedButton(
         focusNode: this.focusNode,
-        style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.all(20.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0)
-          ),
-          textStyle: TextStyle(fontSize: 20.0),
-        ),
+        style: this.style ?? Theme.of(context).elevatedButtonTheme.style,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
