@@ -1,4 +1,4 @@
-package com.example.verus_verify
+package com.lab.pangz.verus_verify
 
 import io.flutter.embedding.android.FlutterActivity
 

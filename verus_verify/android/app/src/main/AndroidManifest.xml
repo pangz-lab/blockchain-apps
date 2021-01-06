@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.verus_verify">
+    package="com.lab.pangz.verus_verify">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="verus_verify"
+        android:label="Verus Verify"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
