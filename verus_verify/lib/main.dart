@@ -61,21 +61,21 @@ class BaseScreen extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _BaseScreentState extends State<BaseScreen> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static List<Widget> _widgetOptions = <Widget>[
-    HomeScreen(),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-  ];
+  // int _selectedIndex = 0;
+  // static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  // static List<Widget> _widgetOptions = <Widget>[
+  //   HomeScreen(),
+  //   Text(
+  //     'Index 2: School',
+  //     style: optionStyle,
+  //   ),
+  // ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  // void _onItemTapped(int index) {
+  //   setState(() {
+  //     _selectedIndex = index;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
