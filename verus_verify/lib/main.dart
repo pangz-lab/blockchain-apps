@@ -69,19 +69,7 @@ class _BaseScreentState extends State<BaseScreen> {
           IconButton(
             icon: Icon(Icons.info),
             onPressed: () {
-              return SimpleDialog(
-                title: const Text('Select assignment'),
-                children: <Widget>[
-                  SimpleDialogOption(
-                    // onPressed: () { Navigator.pop(context, Department.treasury); },
-                    child: const Text('Treasury department'),
-                  ),
-                  SimpleDialogOption(
-                    // onPressed: () { Navigator.pop(context, Department.state); },
-                    child: const Text('State department'),
-                  ),
-                ],
-              );
+              _showMyDialog();
             },
           )
         ],
@@ -91,4 +79,32 @@ class _BaseScreentState extends State<BaseScreen> {
       ),
     );
   }
+
+  Future<void> _showMyDialog() async {
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('Verus Verify'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              Text('Developed by : Pangz'),
+              Text('Email: pangz.lab.dev@protonmail.com'),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
 }
