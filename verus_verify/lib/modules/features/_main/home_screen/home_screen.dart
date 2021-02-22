@@ -69,40 +69,5 @@ class HomeScreen extends StatelessWidget {
         onPressed();
       }
     );
-    // return Row(
-    //   children: [
-    //     Expanded(
-    //       flex: 1,
-    //       child: Container(
-    //         child: Center(
-    //           child: Text(
-    //             prefix,
-    //             style: Theme.of(context).textTheme.headline3
-    //           ),
-    //         ),
-    //       ),
-    //     ),
-    //     Expanded(
-    //       flex: 3,
-    //       child: FlatButton(
-    //         onPressed : () {
-    //           onPressed();
-    //         },
-    //         child: Text(
-    //           title,
-    //           style: Theme.of(context).textTheme.headline3
-    //         )
-    //       ),
-    //     ),
-    //     Expanded(
-    //       flex: 1,
-    //       child: Icon(
-    //         Icons.arrow_right_rounded,
-    //         size: 50.0,
-    //         color: Colors.black45,
-    //       )
-    //     )
-    //   ],
-    // );
   }
 }

@@ -16,7 +16,7 @@ import 'package:verus_verify/themes/default.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-      
+
   runApp(
     MultiProvider(
       providers: [
@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Verus Verify',
       theme: ThemeDefault.apply,
-      // home: MyStatefulWidget(),
       initialRoute: '/',
       routes: {
         '/' : (context) => BaseScreen(),
@@ -61,49 +60,35 @@ class BaseScreen extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _BaseScreentState extends State<BaseScreen> {
-  // int _selectedIndex = 0;
-  // static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  // static List<Widget> _widgetOptions = <Widget>[
-  //   HomeScreen(),
-  //   Text(
-  //     'Index 2: School',
-  //     style: optionStyle,
-  //   ),
-  // ];
-
-  // void _onItemTapped(int index) {
-  //   setState(() {
-  //     _selectedIndex = index;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Verus Verify'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.info),
+            onPressed: () {
+              return SimpleDialog(
+                title: const Text('Select assignment'),
+                children: <Widget>[
+                  SimpleDialogOption(
+                    // onPressed: () { Navigator.pop(context, Department.treasury); },
+                    child: const Text('Treasury department'),
+                  ),
+                  SimpleDialogOption(
+                    // onPressed: () { Navigator.pop(context, Department.state); },
+                    child: const Text('State department'),
+                  ),
+                ],
+              );
+            },
+          )
+        ],
       ),
       body: Center(
         child: HomeScreen()
       ),
-      // body: Center(
-      //   child: _widgetOptions.elementAt(_selectedIndex),
-      // ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   items: const <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.home),
-      //       label: 'Home',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.settings),
-      //       label: 'Setting',
-      //     ),
-      //   ],
-      //   currentIndex: _selectedIndex,
-      //   selectedItemColor: Colors.amber[800],
-      //   onTap: _onItemTapped,
-      // ),
     );
   }
 }
