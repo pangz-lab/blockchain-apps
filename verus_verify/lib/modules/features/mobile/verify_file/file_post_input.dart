@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:verus_verify/modules/components/input_item_sub_display.dart';
 import 'package:verus_verify/modules/components/input_item_sub_header.dart';
-import 'package:verus_verify/styles/default.dart';
+// import 'package:verus_verify/styles/default.dart';
 import 'package:verus_verify/modules/features/mobile/verify_file/entities/file_input_type.dart';
 import 'package:verus_verify/modules/features/mobile/verify_file/file_verification_result.dart';
 import 'package:verus_verify/modules/features/mobile/verify_file/services/file_form_service.dart';

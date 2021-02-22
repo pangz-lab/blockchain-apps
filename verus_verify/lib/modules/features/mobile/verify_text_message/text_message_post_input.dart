@@ -4,7 +4,7 @@ import 'package:verus_verify/modules/components/input_item_sub_header.dart';
 import 'package:verus_verify/modules/features/mobile/verify_text_message/services/message_form_service.dart';
 import 'package:verus_verify/modules/features/mobile/verify_text_message/entities/message_input_type.dart';
 import 'package:verus_verify/modules/features/mobile/verify_text_message/text_message_verification_result.dart';
-import 'package:verus_verify/styles/default.dart';
+// import 'package:verus_verify/styles/default.dart';
 
 class TextMessagePostInput extends StatelessWidget {
 

@@ -23,7 +23,7 @@ class VerifyHashPostInputScreen extends StatelessWidget {
     );
   }
 
-  void _navigateHome(context) {
-    Navigator.pop(context);
-  }
+  // void _navigateHome(context) {
+  //   Navigator.pop(context);
+  // }
 }
