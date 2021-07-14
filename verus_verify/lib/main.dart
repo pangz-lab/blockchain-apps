@@ -60,6 +60,7 @@ class BaseScreen extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _BaseScreentState extends State<BaseScreen> {
+  var _textInfoStyle =  TextStyle(fontSize: 15.0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,8 +91,10 @@ class _BaseScreentState extends State<BaseScreen> {
         content: SingleChildScrollView(
           child: ListBody(
             children: <Widget>[
-              Text('Developed by : Pangz'),
-              Text('Email: pangz.lab.dev@protonmail.com'),
+              Text('👨‍💻 Developed by : Pangz', style: _textInfoStyle),
+              Text('📧 Email: pangz.lab.dev@protonmail.com' , style: _textInfoStyle),
+              Divider(),
+              Text('📲 Version: 1.0.0', style: _textInfoStyle),
             ],
           ),
         ),
